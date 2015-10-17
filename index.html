@@ -31,7 +31,19 @@
 
 		<script type="text/javascript">
 
-	
+			function sampleGraffitiData(){
+				function plotData(){
+					var results = storage.get(callId);
+					initGoogleMap(results);
+				}
+				var callId = 'nearby_trees';
+				var limit = 100;
+				getGraffiti(callId, {
+					'graffititype': 'Gang'
+				}, limit, plotData);
+			}
+
+			sampleGraffitiData();
 
 		</script>
 		
