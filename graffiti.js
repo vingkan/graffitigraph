@@ -6,7 +6,7 @@ function newGraffitiID(){
 	return newID;
 }
 
-
+Graffiti.prototype.id = ""; //String
 Graffiti.prototype.coordinates = {
 	'latitude': 0.0,
 	'longitude': 0.0
