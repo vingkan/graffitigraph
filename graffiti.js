@@ -29,3 +29,11 @@ function Graffiti(data){
 		'longitude': parseFloat(data['longitude'])
 	};
 }
+
+Graffiti.prototype.getLat = function(){
+	return this.coordinates.latitude;
+}
+
+Graffiti.prototype.getLon = function(){
+	return this.coordinates.longitude;
+}

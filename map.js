@@ -10,7 +10,7 @@ function updateCoords(position){
 
 navigator.geolocation.getCurrentPosition(updateCoords);
 
-function initGoogleMap(){
+function initGoogleMap(markerArray){
 	var mapProperties = {
 		center: new google.maps.LatLng(userLocation.latitude, userLocation.longitude),
 		zoom: 18,
