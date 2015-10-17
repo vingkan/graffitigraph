@@ -1,11 +1,3 @@
-var graffitiIDList = [];
-
-function newGraffitiID(){
-	var newID = "graffiti" + graffitiIDList.length;
-	graffitiIDList.push(newID);
-	return newID;
-}
-
 Graffiti.prototype.id = ""; //String
 Graffiti.prototype.type = ""; //String
 Graffiti.prototype.requested = ""; //Date
@@ -18,7 +10,7 @@ Graffiti.prototype.coordinates = {
 }; //Object of Doubles/Floats
 
 function Graffiti(data){
-	this.id = newGraffitiID();
+	this.id = data['servno'];
 	this.type = data['graffititype'];
 	this.requested = new Date(data['request_date']);
 	this.resolved = new Date(data['resolved_date']);
