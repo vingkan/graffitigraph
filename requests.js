@@ -3,7 +3,7 @@ var appToken = "Le00VXF0GK0d8D1tTn2v6Vkpl";
 
 var storage = new Storage();
 
-function getTrees(id, query, limit, callback){
+function getGraffiti(id, query, limit, callback){
 	query['$$app_token'] = appToken;
 	query['$limit'] = limit;
 	$.ajax({
@@ -12,8 +12,8 @@ function getTrees(id, query, limit, callback){
 		dataType: "json",
 		data: query,
 		success: function(data, status, jqxhr){
-			console.log("Received tree data for [" + id + "]...");
-			handleTreeData(id, data, callback);
+			console.log("Received graffiti data for [" + id + "]...");
+			handleGraffitiData(id, data, callback);
 		},
 		error: function(jqxhr, status, error){
 			console.log("Critical Error. RIP.");
@@ -21,14 +21,14 @@ function getTrees(id, query, limit, callback){
 	});
 }
 
-function handleTreeData(id, data, callback){
-	var newTrees = []
+function handleGraffitiData(id, data, callback){
+	var newGraffiti = []
 	for(var d = 0; d < data.length; d++){
-		newTrees.push(new Tree(data[d]));
+		newGraffiti.push(new Graffiti(data[d]));
 	}
 	storage.add({
 		'id': id,
-		'data': newTrees
+		'data': newGraffiti
 	});
 	if(callback != null){
 		callback();
