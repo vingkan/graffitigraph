@@ -7,6 +7,9 @@ function newGraffitiID(){
 }
 
 Graffiti.prototype.id = ""; //String
+Graffiti.prototype.type = ""; //String
+Graffiti.prototype.address = ""; //String
+Graffiti.prototype.monikers = []; //String[]
 Graffiti.prototype.coordinates = {
 	'latitude': 0.0,
 	'longitude': 0.0
@@ -14,13 +17,15 @@ Graffiti.prototype.coordinates = {
 
 function Graffiti(data){
 	this.id = newGraffitiID();
-	/*this.species = data['tree_species'] || this.species;
-	this.name = data['common_name'] || this.name;
-	this.diameter = parseInt(data['diameter_at_breast_height'], 10) || this.diameter;
-	this.trunks = parseInt(data['number_of_trunks'], 10) || this.trunks;
-	this.location = data['location_type'] || this.location;*/
+	this.type = data['graffititype'];
+	this.address = data['address'];
+	this.monikers = [
+			data['graffitimoniker'],
+			data['graffitimoniker2'],
+			data['graffitimoniker3']
+		];
 	this.coordinates = {
-		'latitude': parseFloat(data['location']['latitude']),
-		'longitude': parseFloat(data['location']['longitude'])
-	} || this.coordinates;
+		'latitude': parseFloat(data['latitude']),
+		'longitude': parseFloat(data['longitude'])
+	};
 }
