@@ -1,4 +1,4 @@
-var treeURL = "https://data.illinois.gov/resource/dzge-uybj.json"
+var graffitiURL = "https://data.illinois.gov/Municipality/Graffiti/u4ca-yfeq.json"
 var appToken = "Le00VXF0GK0d8D1tTn2v6Vkpl";
 
 var storage = new Storage();
@@ -7,7 +7,7 @@ function getTrees(id, query, limit, callback){
 	query['$$app_token'] = appToken;
 	query['$limit'] = limit;
 	$.ajax({
-		url: treeURL,
+		url: graffitiURL,
 		method: "GET",
 		dataType: "json",
 		data: query,
@@ -42,7 +42,7 @@ function getCount(id, tag, value){
 	}
 	query[tag] = value;
 	$.ajax({
-		url: treeURL,
+		url: graffitiURL,
 		method: "GET",
 		dataType: "json",
 		data: query,
