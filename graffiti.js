@@ -8,6 +8,8 @@ function newGraffitiID(){
 
 Graffiti.prototype.id = ""; //String
 Graffiti.prototype.type = ""; //String
+Graffiti.prototype.requested = ""; //Date
+Graffiti.prototype.resolved = ""; //Date
 Graffiti.prototype.address = ""; //String
 Graffiti.prototype.monikers = []; //String[]
 Graffiti.prototype.coordinates = {
@@ -18,6 +20,8 @@ Graffiti.prototype.coordinates = {
 function Graffiti(data){
 	this.id = newGraffitiID();
 	this.type = data['graffititype'];
+	this.requested = new Date(data['request_date']);
+	this.resolved = new Date(data['resolved_date']);
 	this.address = data['address'];
 	this.monikers = [
 			data['graffitimoniker'],
@@ -36,4 +40,10 @@ Graffiti.prototype.getLat = function(){
 
 Graffiti.prototype.getLon = function(){
 	return this.coordinates.longitude;
+}
+
+Graffiti.prototype.getResolutionLength = function(){
+	var time = this.resolved.getTime() - this.requested.getTime();
+	var days = (((time / 1000) / 60) / 60) / 24;
+	return days;
 }
