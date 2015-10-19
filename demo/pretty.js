@@ -5,5 +5,6 @@ function collapseEntryText(){
 	entryDiv.style.height = "10vh";
 	googleMap.style.marginTop = "10vh";
 	googleMap.style.height = "90vh";
+	$('#entry').removeClass('floatingHeader');
 	$('#entry').addClass('miniHeader');
 }
