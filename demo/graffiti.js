@@ -8,9 +8,14 @@ var SURFACE ={
 * Later, I will either try to use the Google Maps Streetview API to determine surfaces for each data point.
 * If that does not work, I will manually add surfaces for 20-50 data points.
 */
-function randomlyChooseSurface(){
-	console.log(SURFACE.length);
+function getRandomSurface(){
+	//No Enum.length or Enum.get(), so magic numbers and switch statements it is!
 	var random = Math.floor(Math.random() * 2);
+	switch(random){
+		case 0: return SURFACE.WOOD;
+		case 1: return SURFACE.BRICK;
+		default: return null;
+	}
 }
 
 Graffiti.prototype.id = ""; //String
@@ -39,7 +44,7 @@ function Graffiti(data){
 	this.intersection = intersectionType;
 	this.address = data['address'];
 	this.crossStreet = data['crossstreet'];
-	this.surface = null;
+	this.surface = getRandomSurface();
 	this.monikers = [
 			data['graffitimoniker'],
 			data['graffitimoniker2'],
