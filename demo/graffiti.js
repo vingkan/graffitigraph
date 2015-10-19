@@ -1,3 +1,18 @@
+var SURFACE ={
+	WOOD: {name: "Wood"},
+	BRICK: {name: "Brick"} 
+}
+
+/*
+* Since the surface data is not included in the Rockford dataset, I will use this function for now.
+* Later, I will either try to use the Google Maps Streetview API to determine surfaces for each data point.
+* If that does not work, I will manually add surfaces for 20-50 data points.
+*/
+function randomlyChooseSurface(){
+	console.log(SURFACE.length);
+	var random = Math.floor(Math.random() * 2);
+}
+
 Graffiti.prototype.id = ""; //String
 Graffiti.prototype.type = ""; //String
 Graffiti.prototype.requested = ""; //Date
@@ -5,7 +20,7 @@ Graffiti.prototype.resolved = ""; //Date
 Graffiti.prototype.intersection = false; //Boolean
 Graffiti.prototype.address = ""; //String
 Graffiti.prototype.crossStreet = ""; //String
-Graffiti.prototype.surface = ""; //String, perhaps Enum eventually
+Graffiti.prototype.surface = ""; //Surface Enumeration
 Graffiti.prototype.monikers = []; //String[]
 Graffiti.prototype.coordinates = {
 	'latitude': 0.0,
