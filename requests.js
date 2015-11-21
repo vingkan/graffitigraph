@@ -3,7 +3,7 @@ var appToken = "Le00VXF0GK0d8D1tTn2v6Vkpl";
 
 var storage = new Storage();
 
-function getGraffiti(id, query, limit, callback){
+function getGraffiti(id, query, limit, callback){
 	query['$$app_token'] = appToken;
 	query['$limit'] = limit;
 	$.ajax({
