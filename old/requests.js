@@ -1,4 +1,4 @@
-var graffitiURL = "https://data.illinois.gov/resource/hec5-y4x5.json"
+var graffitiURL = "https://data.illinois.gov/resource/u4ca-yfeq.json"
 var appToken = "Le00VXF0GK0d8D1tTn2v6Vkpl";
 
 var storage = new Storage();
