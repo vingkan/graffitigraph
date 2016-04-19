@@ -2,9 +2,9 @@
 /*---> COLORS <-------------------------------*/
 /*--------------------------------------------*/
 
-@mainColor: #E25041;
-@mainLight: @mainColor + #222222;
-@mainDark: @mainColor - #222222;
+@MainColor: #E25041;
+@mainLight: @MainColor + #222222;
+@mainDark: @MainColor - #222222;
 
 @charcoal: #1a1a1a;
 
@@ -12,10 +12,12 @@
 /*---> FONTS <--------------------------------*/
 /*--------------------------------------------*/
 
-@textSize: 3vh;
+@vh: 6.0px;
+@tx: 3 * @vh;
 
 .HeadFont(){
 	font-family: sans-serif;
+	font-weight: bold;
 }
 
 .BodyFont(){
@@ -28,7 +30,7 @@
 
 p, h1, h2, h3, ul, li{
 	.BodyFont();
-	margin: (0.5 * @textSize) auto;
+	margin: (0.5 * @tx) auto;
 }
 
 h1, h2, h3{
@@ -37,23 +39,23 @@ h1, h2, h3{
 }
 
 h1{
-	font-size: 1.5 * @textSize;
-	line-height: 1.75 * @textSize;
+	font-size: 1.5 * @tx;
+	line-height: 1.75 * @tx;
 }
 
 h2{
-	font-size: 1.25 * @textSize;
-	line-height: 1.5 * @textSize;
+	font-size: 1.25 * @tx;
+	line-height: 1.5 * @tx;
 }
 
 h2{
-	font-size: 1.1 * @textSize;
-	line-height: 1.35 * @textSize;
+	font-size: 1.1 * @tx;
+	line-height: 1.35 * @tx;
 }
 
 p{
-	font-size: 1.0 * @textSize;
-	line-height: 1.25 * @textSize;
+	font-size: 1.0 * @tx;
+	line-height: 1.25 * @tx;
 	text-align: center;
 }
 
@@ -63,10 +65,17 @@ ul{
 }
 
 li{
-	font-size: 1.0 * @textSize;
-	line-height: 1.25 * @textSize;
+	font-size: 1.0 * @tx;
+	line-height: 1.25 * @tx;
 	list-style: disc;
-	margin: (0.15 * @textSize) auto;
+	margin: (0.15 * @tx) auto;
+}
+
+.StandardText(@scale: 0.75){
+	.BodyFont();
+	font-size: @scale * 1.0 * @tx;
+	line-height: @scale * 1.25 * @tx;
+	text-align: left;
 }
 
 /*--------------------------------------------*/
@@ -77,7 +86,7 @@ html{
 	background: white;
 	//Default Text Styles
 	.BodyFont();
-	font-size: @textSize;
+	font-size: @tx;
 	color: @charcoal;
 	overflow-x: hidden;
 	overflow-y: hidden;
@@ -85,7 +94,7 @@ html{
 
 body{
 	margin: 0;
-	width: 98vw;
+	width: 100vw;
 	margin: 0 auto;
 }
 
@@ -112,6 +121,19 @@ div#map{
 	height: 100vh;
 }
 
+div.graffiti-marker{
+
+	h1, p{
+		.StandardText();
+	}
+
+	h1{
+		.HeadFont();
+		color: @MainColor;
+	}
+
+}
+
 
 /*--------------------------------------------*/
 /*---> HEADER & FOOTER <----------------------*/
@@ -133,7 +155,7 @@ input, button, select{
 /*--------------------------------------------*/
 
 @scrollBar: white;
-@scrollBarBack: @mainColor;
+@scrollBarBack: @MainColor;
 
 ::-webkit-scrollbar{
 	width: 10px;
