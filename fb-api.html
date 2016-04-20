@@ -8,8 +8,7 @@
 		<!-- IMPORTED SCRIPTS -->
 		<!-- NEED GOOGLE FONTS LATER -->
 		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-		<!-- FIREBASE.JS -->
-		<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+		<!-- NEED FIREBASE LATER -->
 		<!-- MOMENT.JS -->
 		<script type="text/javascript" src="moment.min.js"></script>
 		<!-- LEAFLET.JS -->
@@ -17,33 +16,44 @@
 		<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
 		<style>
 
-			
-
 		</style>
 	</head>
 
 	<body>
 
-		<div id="map"></div>
+		<script>
+		  window.fbAsyncInit = function() {
+		    FB.init({
+		      appId      : '1681466342126424',
+		      xfbml      : true,
+		      version    : 'v2.6'
+		    });
+		    main();
+		  };
 
-		<script type="text/javascript" src="lib/storage.js"></script>
-		<script type="text/javascript" src="lib/graffiti.js"></script>
-		<script type="text/javascript" src="lib/requests.js"></script>
-		<script type="text/javascript" src="lib/main.js"></script>
+		  (function(d, s, id){
+		     var js, fjs = d.getElementsByTagName(s)[0];
+		     if (d.getElementById(id)) {return;}
+		     js = d.createElement(s); js.id = id;
+		     js.src = "//connect.facebook.net/en_US/sdk.js";
+		     fjs.parentNode.insertBefore(js, fjs);
+		   }(document, 'script', 'facebook-jssdk'));
+		</script>
+
 		<script type="text/javascript">
 
-		function getGeoIP(callback){
-			var x = new XMLHttpRequest();
-			x.open('GET', 'https://geoip.nekudo.com/api/', false);
-			x.send();
-			var res = x.responseText;
-			var geoip = JSON.parse(res);
-			if(callback){
-				callback(geoip);
-			}
-		}
+		function main(){
 
-		getGeoIP(main);
+			FB.api('/page/feed', 'get', function(response){
+				if(response.data){
+					console.log(response.data);
+				}
+				else{
+					console.log("Error!");
+				}
+			});
+
+		}
 
 		</script>
 
