@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Graffiti Graph</title>
+		<link rel="stylesheet" type="text/css" href="style/reset.css">
+		<link rel="stylesheet" type="text/css" href="style/main.css">
+		<!--<link rel="icon" type="img/png" href="style/favicon.png" style="width:30px;">-->
+		<!-- IMPORTED SCRIPTS -->
+		<!-- NEED GOOGLE FONTS LATER -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<!-- FIREBASE.JS -->
+		<script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+		<!-- MOMENT.JS -->
+		<script type="text/javascript" src="moment.min.js"></script>
+		<!-- LEAFLET.JS -->
+		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+		<script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+		<!-- OVERLAPPING MARKER SPIDERFIER -->
+		<script type="text/javascript" src="oms.min.js"></script>
+		<!-- LOAD IMAGE AND EXIF PARSE -->
+		<script type="text/javascript" src="load-image.all.min.js"></script>
+		<style>
+
+			
+
+		</style>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+
+var URL = "https://scontent.xx.fbcdn.net/v/t35.0-12/13072000_870996563046184_204281523_o.jpg?oh=be17ec480e57ab50e303936a2cf82efb&oe=571A5E23";
+var fileBlob = loadImage(URL, function(img){
+	if(img.type === 'error'){
+		console.log('Error loading image: ' + URL);
+	}
+	else{
+		document.body.appendChild(img);
+	}
+}, {maxWidth: 600});
+var metaData = loadImage.parseMetaData(
+	fileBlob,
+	function(data){
+		console.log(data.exif.getAll())
+	},
+	{
+		maxMetaDataSize: 262144,
+		disableImageHead: false
+	}
+);
+		</script>
+
+	</body>
+
+</html>
